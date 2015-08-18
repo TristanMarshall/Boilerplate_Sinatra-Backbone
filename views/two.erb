@@ -1,0 +1,33 @@
+<h1>Exercise 2</h1>
+
+
+<h3>How to render a template</h3>
+
+<p id="content">
+
+
+</p>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    //declare a template string
+    var template = $('#tpl').html();
+    var data = {
+      animal: 'donkey',
+      adjective: 'portly'
+    };
+    var tpl = _.template(template); // create a function with
+    //an argument of a data object (aka a model.. soon)
+    var renderedTemplate = tpl(data);
+    // console.log(tpl(data));
+    $('#content').html(tpl(data));
+});
+
+
+</script>
+
+<script type="text/javascript" id="tpl">
+
+a very large <%%= animal %> is sitting on my <%%= adjective %> aunt.
+
+</script>

@@ -1,2 +1,9 @@
-# Boilerplate_Sinatra-Backbone
-a Basic boilerplate for Backbone made with Sinatra
+# Boilerplate: Backbone (Sinatra)
+
+##### A basic Backbone boilerplate using Sinatra.
+
+Links included within Layout.erb:
+* app.js
+* jquery.js
+* (CDN) Backbone
+* (CDN) underscore
