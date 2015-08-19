@@ -15,3 +15,7 @@ get '/2' do
   erb :two
 
 end
+
+get '/3' do
+  erb :three
+end

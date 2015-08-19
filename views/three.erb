@@ -1,0 +1,38 @@
+<h1>Exercise 3</h1>
+
+<h3>Using Templates with a List of Data</h3>
+
+
+
+<!-- TEMPLATE RENDERED BELOW -->
+<p id='content'></p>
+
+
+
+<!-- CONTENT TO BE RENDERED -->
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var people = [
+        {first: "Trist", last:"Marshall"},
+        {first: "Isaac", last: "Bueno"},
+        {first: "Kate", last: "Shirley"}
+        ];
+
+    var template = _.template($('#story').html());
+
+    for (var x in people) {
+
+    var data = people[x];
+    console.log(data);
+    $('#content').append(template(data));
+    }
+  });
+</script>
+
+
+
+<!-- TEMPLATE BELOW -->
+<script type="text/template" id="story">
+  <li><%%= first %>, <%%= last %></li>
+</script>
