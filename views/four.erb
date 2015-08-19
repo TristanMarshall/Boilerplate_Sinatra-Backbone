@@ -1,0 +1,33 @@
+<h1>Exercise 4</h1>
+<h3>Hello, Backbone</h3>
+
+<section id="container"></section>
+<section class="meow"></section>
+
+<script type="text/javascript">
+
+  var app = app || {};
+
+  app.listItemView = Backbone.View.extend({
+    initialize: function() {
+      console.log('the view has arrived');
+      this.render();
+      console.log(this.$el);
+    },
+
+    render: function() {
+      console.log('The view took the shades off');
+      this.$el.append('<img class="image" src="http://images.yuku.com.s3.amazonaws.com/image/jpg/42426906839a21a2ff837de7b80d3a8c1880e59b_r.jpg"/>');
+
+    }
+  });
+// el is a reference to a jquery selector
+var listItem = new app.listItemView({
+  el: $('#container')
+});
+var listItemTwo = new app.listItemView({
+  el: $('.meow')
+});
+
+
+</script>
