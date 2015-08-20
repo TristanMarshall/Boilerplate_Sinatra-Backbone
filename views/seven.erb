@@ -1,0 +1,24 @@
+<h1>Exercise 7</h1>
+
+<h3>Making a Model</h3>
+
+<p>
+  Assignment: create a namespace of your choosing. Then, create a model with a URL to a movie somewhere on OMDB. Then, fetch the data and use the on.change() event to log in the console the model.attributes .
+ </p>
+
+<script type="text/javascript">
+
+  var movie2App = movie2App || {};
+
+  movie2App.movieModel = Backbone.Model.extend({
+    url: 'http://www.omdbapi.com/?t=The+princess+bride&y=&plot=short&r=json',
+    initialize: function(){
+      console.log('the model is ready!');
+      this.on('change', function(event){
+        console.log('the model has changed!');
+      });
+    }
+  });
+  var movie = new movie2App.movieModel();
+  movie.fetch();
+</script>
