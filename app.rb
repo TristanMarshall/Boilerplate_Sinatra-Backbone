@@ -6,6 +6,12 @@ ActiveRecord::Base::establish_connection(
   :database => 'insta'
 )
 
+### inta application!
+
+get '/insta' do
+  erb :insta
+end
+  
 get '/' do
   erb :index
 end
@@ -42,6 +48,14 @@ get '/8' do
   erb :eight
 end
 
+get '/9' do
+  erb :nine
+end
+
+get '/10' do
+  erb :ten
+end
+
 ### Restful API
 
 get '/api/insta' do
@@ -53,10 +67,16 @@ get '/api/insta/:id' do
 end
 
 post '/api/insta' do
-  InstagramModel.create(params).to_json
+  request_body = JSON.parse(request.body.read.to_s)
+  InstagramModel.create(request_body).to_json
+
+#binding.pry
+#Stops the execution of our app and lets us use the console (terminal) to interact with this code block
+
 end
 
 put '/api/insta/:id' do
+  request_body = JSON.parse(request.body.read.to_s)
   @id = params[:id]
   @insta = InstagramModel.find(@id)
   @insta.username = params[:username]
@@ -68,6 +88,7 @@ put '/api/insta/:id' do
 end
 
 patch '/api/insta/:id' do
+  request_body = JSON.parse(request.body.read.to_s)
   @id = params[:id]
   @insta = InstagramModel.find(@id)
   @insta.username = params[:username]
